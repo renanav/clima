@@ -28,6 +28,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         // Set up location manager
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters //keeping a hundred meters accuracy will lower battery usage without affecting the performance of the app
+        // promprt for a permission from the user to use the GPS when the app is in use
         locationManager.requestWhenInUseAuthorization()
         
 
