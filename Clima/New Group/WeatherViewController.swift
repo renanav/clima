@@ -30,7 +30,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters //keeping a hundred meters accuracy will lower battery usage without affecting the performance of the app
         // promprt for a permission from the user to use the GPS when the app is in use
         locationManager.requestWhenInUseAuthorization()
-        
+        locationManager.startUpdatingLocation()
 
     }
 
@@ -83,6 +83,16 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Location Manager Delegate Methods
     /***************************************************************/
     
+    // Once the location is accurate enough, the view controller will receive the coardinates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if locationManager.desiredAccuracy > 0 {
+        
+        }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+        cityLabel.text = "Location Unavailable"
+    }
+    }
     
 
     
