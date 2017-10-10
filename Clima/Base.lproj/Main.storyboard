@@ -47,10 +47,9 @@
                                 <rect key="frame" x="0.0" y="193" width="375" height="454"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pre-Yc-tDv" userLabel="Temperature Label">
-                                        <rect key="frame" x="191" y="0.0" width="168" height="127"/>
+                                        <rect key="frame" x="207.5" y="0.0" width="151.5" height="127"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="127" id="AcU-gc-bbe"/>
-                                            <constraint firstAttribute="width" constant="168" id="Jmx-1E-VlN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="100"/>
                                         <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -60,10 +59,9 @@
                                         <rect key="frame" x="16" y="129" width="343" height="229"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9f-fI-gAs" userLabel="City Label">
-                                        <rect key="frame" x="16" y="360" width="269" height="94"/>
+                                        <rect key="frame" x="16" y="360" width="140.5" height="94"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="94" id="8h2-o9-dHb"/>
-                                            <constraint firstAttribute="width" constant="269" id="F4Y-b3-KM8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                         <color key="textColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -71,10 +69,12 @@
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="pre-Yc-tDv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NdU-vi-bPB" secondAttribute="leading" id="3HL-Mm-CSQ"/>
                                     <constraint firstItem="a9f-fI-gAs" firstAttribute="leading" secondItem="NdU-vi-bPB" secondAttribute="leading" constant="16" id="OFW-iT-52R"/>
                                     <constraint firstAttribute="bottom" secondItem="a9f-fI-gAs" secondAttribute="bottom" id="VFH-cy-6PP"/>
                                     <constraint firstItem="uTY-Rp-Kpc" firstAttribute="leading" secondItem="NdU-vi-bPB" secondAttribute="leading" constant="16" id="WS5-b6-tIO"/>
                                     <constraint firstItem="a9f-fI-gAs" firstAttribute="top" secondItem="uTY-Rp-Kpc" secondAttribute="bottom" constant="2" id="bhp-T7-J4n"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a9f-fI-gAs" secondAttribute="trailing" id="bkk-AC-QAu"/>
                                     <constraint firstAttribute="trailing" secondItem="uTY-Rp-Kpc" secondAttribute="trailing" constant="16" id="dgv-CF-Fnq"/>
                                     <constraint firstItem="pre-Yc-tDv" firstAttribute="top" secondItem="NdU-vi-bPB" secondAttribute="top" id="kfO-jJ-BTn"/>
                                     <constraint firstAttribute="height" constant="454" id="p9x-2m-piE"/>
@@ -127,6 +127,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wG0-nc-8oX" userLabel="Get Weather Button">
                                         <rect key="frame" x="12" y="191" width="351" height="30"/>
+                                        <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="0.58727525684931503" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="IVS-6R-pss"/>
                                         </constraints>
@@ -135,6 +136,9 @@
                                             <color key="titleColor" red="1" green="0.99997437" blue="0.99999129769999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="getWeatherPressed:" destination="u4f-cF-xuX" eventType="touchUpInside" id="r5C-08-LzZ"/>
                                         </connections>
@@ -162,7 +166,6 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="wG0-nc-8oX" secondAttribute="bottom" id="0oq-A3-Ml4"/>
                                     <constraint firstAttribute="trailing" secondItem="wG0-nc-8oX" secondAttribute="trailing" constant="12" id="Frj-Ny-S4L"/>
-                                    <constraint firstAttribute="centerX" secondItem="Err-1Y-5Xv" secondAttribute="centerX" id="Nng-aP-DdN"/>
                                     <constraint firstItem="atQ-bA-wZv" firstAttribute="leading" secondItem="pXB-qT-86w" secondAttribute="leading" constant="16" id="UXz-li-ip8"/>
                                     <constraint firstAttribute="height" constant="221" id="gKj-ci-0iD"/>
                                     <constraint firstItem="wG0-nc-8oX" firstAttribute="leading" secondItem="pXB-qT-86w" secondAttribute="leading" constant="12" id="gff-27-EoG"/>
@@ -172,6 +175,11 @@
                                     <constraint firstAttribute="trailing" secondItem="Err-1Y-5Xv" secondAttribute="trailing" constant="93" id="rE7-Oe-B0i"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yc-Fe-Vxb">
+                                <rect key="frame" x="236" y="406" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -188,6 +196,7 @@
                     <navigationItem key="navigationItem" id="xiJ-ug-sws"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="Err-1Y-5Xv" id="t8K-Pa-PRL"/>
+                        <outlet property="testButton" destination="1Yc-Fe-Vxb" id="Czh-62-tnB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlU-Di-f2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
