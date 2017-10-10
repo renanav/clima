@@ -83,16 +83,27 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Location Manager Delegate Methods
     /***************************************************************/
     
-    // Once the location is accurate enough, the view controller will receive the coardinates
+    // Once the location is accurate enough, the view controller will receive the coordinates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if locationManager.desiredAccuracy > 0 {
-        
+        let location = locations[locations.count - 1]
+        if location.horizontalAccuracy > 0 {
+            locationManager.stopUpdatingLocation() //stop updating the location once a valid result is obtained (saves battery)
+            
+            print("longitude = \(location.coordinate.longitude), latitude = \(location.coordinate.latitude)")
+            
+            let latitude = String(location.coordinate.latitude)
+            let longitude = String(location.coordinate.longitude)
+            let params: [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
         }
+    }
+    
+    // This method will trigger if there's an error in the location retreival
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         cityLabel.text = "Location Unavailable"
     }
-    }
+    
+    
     
 
     
