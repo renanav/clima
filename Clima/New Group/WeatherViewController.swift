@@ -8,9 +8,11 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
-
+    
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "9a465d48de3155130bf2f05c5ea4fa55"
@@ -31,29 +33,40 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         // promprt for a permission from the user to use the GPS when the app is in use
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-
+        
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     //MARK: - Networking
     /***************************************************************/
     
+    func getWeatherData (url: String, parameters: [String : String]) {
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
+            response in
+            if response.result.isSuccess {
+                print("Received weather data")
+            } else {
+                print("Error \(response.result.error)")
+                self.cityLabel.text = "Connection issues"
+            }
+        }
+    }
     
     
     
@@ -94,6 +107,9 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
             let latitude = String(location.coordinate.latitude)
             let longitude = String(location.coordinate.longitude)
             let params: [String : String] = ["lat" : latitude, "lon" : longitude, "appid" : APP_ID]
+            
+            // http request
+            getWeatherData(url: WEATHER_URL, parameters: params)
         }
     }
     
@@ -105,7 +121,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     
     
     
-
+    
     
     
     
@@ -115,5 +131,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     //MARK: - Change City Delegate methods
     /***************************************************************/
     
-
+    
 }
+

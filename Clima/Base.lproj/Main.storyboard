@@ -153,8 +153,7 @@
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="backButton:" destination="u4f-cF-xuX" eventType="touchUpInside" id="Sos-tb-7Nz"/>
-                                            <action selector="backButtonPressed:" destination="u4f-cF-xuX" eventType="touchUpInside" id="dUZ-og-lrF"/>
+                                            <action selector="backButton:" destination="u4f-cF-xuX" eventType="touchUpInside" id="K4A-VZ-weL"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Err-1Y-5Xv" userLabel="City Name Text Field">
