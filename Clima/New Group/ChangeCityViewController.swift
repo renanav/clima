@@ -13,11 +13,8 @@ class ChangeCityViewController: UIViewController {
     @IBOutlet weak var changeCityTextField: UITextField!
     
     @IBAction func getWeatherPressed(_ sender: UIButton) {
-        
+
     }
-    
-    
-    @IBOutlet weak var testButton: UIButton!
     
     
     override func viewDidLoad() {

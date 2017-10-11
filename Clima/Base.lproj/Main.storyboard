@@ -174,11 +174,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Err-1Y-5Xv" secondAttribute="trailing" constant="93" id="rE7-Oe-B0i"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yc-Fe-Vxb">
-                                <rect key="frame" x="236" y="406" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -195,7 +190,6 @@
                     <navigationItem key="navigationItem" id="xiJ-ug-sws"/>
                     <connections>
                         <outlet property="changeCityTextField" destination="Err-1Y-5Xv" id="t8K-Pa-PRL"/>
-                        <outlet property="testButton" destination="1Yc-Fe-Vxb" id="Czh-62-tnB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlU-Di-f2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
