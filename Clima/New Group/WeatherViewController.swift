@@ -17,7 +17,10 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "9a465d48de3155130bf2f05c5ea4fa55"
     
+    // Instance variables
     let locationManager = CLLocationManager()
+    let weatherDataModel = WeatherDataModel()
+    
     
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -66,7 +69,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
                 self.updateWeatherData(json: weatherJSON)
                 
             } else {
-                print("Error \(response.result.error)")
+                print("Error \(String(describing: response.result.error))")
                 self.cityLabel.text = "Connection issues"
             }
         }
@@ -82,18 +85,29 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     /***************************************************************/
     
     func updateWeatherData(json: JSON) {
-        let tempResult = json["main"]["temp"]
+        if let tempResult = json["main"]["temp"].double {
+            weatherDataModel.temperature = Int(tempResult - 273.15)
+            weatherDataModel.city = json["name"].stringValue
+            weatherDataModel.condition = json["weather"][0]["id"].intValue //I'm getting the first item because there are several items for `condition`
+            weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+            
+            updateUIWithWeatherData()
+            
+        } else {
+            cityLabel.text = "Weather Unavailable"
+        }
     }
-    
-    
-    
-    
-    
-    
+
     
     //MARK: - UI Updates
     /***************************************************************/
     
+    func updateUIWithWeatherData() {
+        cityLabel.text = weatherDataModel.city
+        temperatureLabel.text = String(weatherDataModel.temperature)
+        weatherIcon.image = UIImage(named:weatherDataModel.weatherIconName)
+        
+    }
     
     
     
