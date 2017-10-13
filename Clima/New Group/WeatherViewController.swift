@@ -11,7 +11,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class WeatherViewController: UIViewController, CLLocationManagerDelegate {
+class WeatherViewController: UIViewController, CLLocationManagerDelegate, ChangeCityDelegate {
     
     //Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -32,7 +32,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         
         // Set up location manager
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters //keeping a hundred meters accuracy will lower battery usage without affecting the performance of the app
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters //over ten meters accuracy returns wrong locations
         // promprt for a permission from the user to use the GPS when the app is in use
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
@@ -143,17 +143,20 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     //MARK: - Change City Delegate methods
     /***************************************************************/
     
+    func userEnteredNewCityName(city: String) {
+        print(city)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "changeCityName" {
+            let destinationVC = segue.destination as! ChangeCityViewController
+            destinationVC.delegate = self
+            
+        }
+    }
     
 }
 

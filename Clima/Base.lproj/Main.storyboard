@@ -40,7 +40,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="u4f-cF-xuX" kind="presentation" id="ZiW-bk-ZBi"/>
+                                    <segue destination="u4f-cF-xuX" kind="presentation" identifier="changeCityName" id="ZiW-bk-ZBi"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdU-vi-bPB" userLabel="Container View">
