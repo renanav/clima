@@ -95,6 +95,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
             
         } else {
             cityLabel.text = "Weather Unavailable"
+            temperatureLabel.text = "--℉"
         }
     }
 
@@ -148,6 +149,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     func userEnteredNewCityName(city: String) {
         let params: [String: String] = ["q" : city, "appid" : APP_ID]
+        getWeatherData(url: WEATHER_URL, parameters: params)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
