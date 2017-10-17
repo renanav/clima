@@ -86,7 +86,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     func updateWeatherData(json: JSON) {
         if let tempResult = json["main"]["temp"].double {
-            weatherDataModel.temperature = Int(tempResult - 273.15)
+            weatherDataModel.temperature = Int(tempResult * (9/5) - 459.67) // Kelvin° to Fahrenheit°
             weatherDataModel.city = json["name"].stringValue
             weatherDataModel.condition = json["weather"][0]["id"].intValue //I'm getting the first item because there are several items for `condition`
             weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
@@ -104,7 +104,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     
     func updateUIWithWeatherData() {
         cityLabel.text = weatherDataModel.city
-        temperatureLabel.text = String(weatherDataModel.temperature)
+        temperatureLabel.text = String(weatherDataModel.temperature) + "℉"
         weatherIcon.image = UIImage(named:weatherDataModel.weatherIconName)
         
     }
@@ -147,7 +147,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     /***************************************************************/
     
     func userEnteredNewCityName(city: String) {
-        print(city)
+        let params: [String: String] = ["q" : city, "appid" : APP_ID]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
